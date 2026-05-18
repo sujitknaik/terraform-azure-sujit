@@ -25,7 +25,6 @@ jobs:
           sftp -i ~/.ssh/id_rsa ${{ secrets.SFTP_USER }}@${{ secrets.SFTP_HOST }} <<EOF
           put test.txt
           ls
-          rm test.txt
           pwd
           exit
           EOF
