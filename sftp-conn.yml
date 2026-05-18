@@ -1,0 +1,17 @@
+name: Test SFTP Connection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-sftp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test SFTP Connection
+        run: |
+          sftp -i ~/.ssh/id_rsa ${{ secrets.SFTP_USER }}@${{ secrets.SFTP_HOST }} <<EOF
+          ls
+          pwd
+          exit
+          EOF
